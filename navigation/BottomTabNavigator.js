@@ -46,8 +46,8 @@ function getHeaderTitle(route) {
 
 	switch (routeName) {
 		case "Recipe":
-			return "레시피 타이머";
+			return "레시피 리더";
 		case "FindRecipe":
-			return "레시피 타이머";
+			return "레시피 찾기";
 	}
 }
