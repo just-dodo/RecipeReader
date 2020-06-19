@@ -9,15 +9,44 @@ import {
 	View,
 	StatusBar,
 	Dimensions,
+	SectionList,
+	FlatList,
 } from "react-native";
 import { ScrollView, TextInput } from "react-native-gesture-handler";
 import Recipe from "../components/Recipes";
+import { Audio } from "expo-av";
 
 const { height, width } = Dimensions.get("window");
+const DATA = [
+	{
+		title: "순두부찌개 레시피",
+		items: [
+			"1. 냄비에 기름을 두르고 파를 볶는다",
+			"2. 파가 노릇노릇해지면 돼지고기를 볶는다.",
+			"3. 돼지고기가 어느정도 익으면 다진 마늘과 다진 양파를 넣고 볶는다.",
+			"4. 수분이 날라가면 고추가루를 넣고 볶는다.",
+			"5. 간장을 냄비 바닥에 부어 졸인다.",
+			"6. 물을 넣고 끓인 후, 각종 야채를 넣는다.",
+			"7. 국간장이나 소금으로 간을 하고, 순두부를 넣는다.",
+		],
+	},
+	{
+		title: "Sides",
+		items: ["French Fries", "Onion Rings", "Fried Shrimps"],
+	},
+	{
+		title: "Drinks",
+		items: ["Water", "Coke", "Beer"],
+	},
+	{
+		title: "Desserts",
+		items: ["Cheese Cake", "Ice Cream"],
+	},
+];
 
 export default function HomeScreen() {
 	const [newHead, setNewHead] = useState("");
-
+	Audio.requestPermissionsAsync();
 	return (
 		<View style={styles.container}>
 			<StatusBar barStyle="light-content" />
@@ -34,8 +63,14 @@ export default function HomeScreen() {
 						placeholderTextColor={"#229C6E"}
 						returnKeyType={"next"}
 					/>
-					<Recipe head={"1번째 레시피"} text={"1번째 레시피의 내용"}></Recipe>
-					<Recipe head={"2번째 레시피"} text={"2번째 레시피의 내용"}></Recipe>
+
+					<FlatList
+						data={DATA}
+						renderItem={({ item }) => (
+							<Recipe title={item.title} items={item.items} />
+						)}
+						//keyExtractor={item => item.id}
+					/>
 				</View>
 			</ScrollView>
 		</View>
