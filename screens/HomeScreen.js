@@ -21,18 +21,27 @@ const DATA = [
 	{
 		title: "순두부찌개 레시피",
 		items: [
-			"1. 냄비에 기름을 두르고 파를 볶는다",
-			"2. 파가 노릇노릇해지면 돼지고기를 볶는다.",
-			"3. 돼지고기가 어느정도 익으면 다진 마늘과 다진 양파를 넣고 볶는다.",
-			"4. 수분이 날라가면 고추가루를 넣고 볶는다.",
-			"5. 간장을 냄비 바닥에 부어 졸인다.",
-			"6. 물을 넣고 끓인 후, 각종 야채를 넣는다.",
-			"7. 국간장이나 소금으로 간을 하고, 순두부를 넣는다.",
+			"냄비에 기름을 두르고 파를 볶는다",
+			"파가 노릇노릇해지면 돼지고기를 볶는다.",
+			"돼지고기가 어느정도 익으면 다진 마늘과 다진 양파를 넣고 볶는다.",
+			"수분이 날라가면 고추가루를 넣고 볶는다.",
+			"간장을 냄비 바닥에 부어 졸인다.",
+			"물을 넣고 끓인 후, 각종 야채를 넣는다.",
+			"국간장이나 소금으로 간을 하고, 순두부를 넣는다.",
 		],
 	},
 	{
-		title: "Sides",
-		items: ["French Fries", "Onion Rings", "Fried Shrimps"],
+		title: "갈릭 크림파스타",
+		items: [
+			"물을 올린다. 끓으면 면을 넣고 시간을 쟨다.",
+			"버터에 마늘을 볶는다.",
+			"색이 나면 양파도 볶는다.",
+			"미리 소금간을 해준다.",
+			"베이컨 등을 넣고 볶아준 후, 크림을 넣고 한보끔 끓인다.",
+			"치즈를 한장 넣어준다. (선택사항)",
+			"면이 익으면 면을 넣고 잘 섞어준다.",
+			"소금, 후추, 파마산 치즈 등으로 간을 맞춘다.",
+		],
 	},
 	{
 		title: "Drinks",
@@ -63,15 +72,15 @@ export default function HomeScreen() {
 						placeholderTextColor={"#229C6E"}
 						returnKeyType={"next"}
 					/>
-
-					<FlatList
-						data={DATA}
-						renderItem={({ item }) => (
-							<Recipe title={item.title} items={item.items} />
-						)}
-						//keyExtractor={item => item.id}
-					/>
 				</View>
+
+				<FlatList
+					data={DATA}
+					renderItem={({ item }) => (
+						<Recipe title={item.title} items={item.items} />
+					)}
+					//keyExtractor={item => item.id}
+				/>
 			</ScrollView>
 		</View>
 	);
