@@ -6,6 +6,7 @@ import { Platform, StatusBar, StyleSheet, View } from "react-native";
 import useCachedResources from "./hooks/useCachedResources";
 import BottomTabNavigator from "./navigation/BottomTabNavigator";
 import LinkingConfiguration from "./navigation/LinkingConfiguration";
+import * as FacebookAds from "expo-ads-facebook";
 
 const Stack = createStackNavigator();
 

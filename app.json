@@ -1,32 +1,32 @@
 {
-  "expo": {
-    "name": "dodoTodo",
-    "slug": "dodoTodo",
-    "platforms": [
-      "ios",
-      "android",
-      "web"
-    ],
-    "version": "1.0.0",
-    "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
-    "scheme": "myapp",
-    "splash": {
-      "image": "./assets/images/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
-    },
-    "updates": {
-      "fallbackToCacheTimeout": 0
-    },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
-    "ios": {
-      "supportsTablet": true
-    },
-    "web": {
-      "favicon": "./assets/images/favicon.png"
-    }
-  }
+	"expo": {
+		"name": "RecipeReader",
+		"slug": "RecipeReader",
+		"platforms": ["ios", "android", "web"],
+		"version": "1.0.0",
+		"orientation": "portrait",
+		"icon": "./assets/images/RecipesReaderIcon.png",
+		"scheme": "myapp",
+		"splash": {
+			"image": "./assets/images/RecipesReaderIcon.png",
+			"resizeMode": "contain",
+			"backgroundColor": "#ffffff"
+		},
+		"updates": {
+			"fallbackToCacheTimeout": 0
+		},
+		"assetBundlePatterns": ["**/*"],
+		"ios": {
+			"supportsTablet": true
+		},
+		"web": {
+			"favicon": "./assets/images/favicon.png"
+		},
+		"android": {
+			"package": "dododo.cook.recipeReader",
+			"versionCode": 1
+		},
+		"facebookAppId": "657820491463765",
+		"facebookDisplayName": "레시피리더"
+	}
 }
