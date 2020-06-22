@@ -15,6 +15,10 @@ import {
 import { ScrollView, TextInput } from "react-native-gesture-handler";
 import Recipe from "../components/Recipes";
 import { Audio } from "expo-av";
+import RecipeButton from "../components/RecipeButton";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+import RecipeDetail from "../screens/RecipeDetail";
 
 const { height, width } = Dimensions.get("window");
 const DATA = [
@@ -43,17 +47,9 @@ const DATA = [
 			"소금, 후추, 파마산 치즈 등으로 간을 맞춘다.",
 		],
 	},
-	{
-		title: "Drinks",
-		items: ["Water", "Coke", "Beer"],
-	},
-	{
-		title: "Desserts",
-		items: ["Cheese Cake", "Ice Cream"],
-	},
 ];
 
-export default function HomeScreen() {
+export default function HomeScreen({ navigation }) {
 	const [newHead, setNewHead] = useState("");
 	Audio.requestPermissionsAsync();
 	return (
@@ -73,11 +69,14 @@ export default function HomeScreen() {
 						returnKeyType={"next"}
 					/>
 				</View>
-
 				<FlatList
 					data={DATA}
 					renderItem={({ item }) => (
-						<Recipe title={item.title} items={item.items} />
+						<RecipeButton
+							title={item.title}
+							items={item.items}
+							navigation={navigation}
+						/>
 					)}
 					//keyExtractor={item => item.id}
 				/>
@@ -89,6 +88,17 @@ export default function HomeScreen() {
 HomeScreen.navigationOptions = {
 	header: "home",
 };
+
+const HomeStack = createStackNavigator();
+
+export function HomeStackScreen() {
+	return (
+		<HomeStack.Navigator>
+			<HomeStack.Screen name="Home" component={HomeScreen} />
+			<HomeStack.Screen name="RecipeDetail" component={RecipeDetail} />
+		</HomeStack.Navigator>
+	);
+}
 
 const styles = StyleSheet.create({
 	container: {
