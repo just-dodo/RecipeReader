@@ -15,7 +15,7 @@ class AdComponent extends React.Component {
 	render() {
 		return (
 			<View style={styles.Container}>
-				<AdMediaView style={{ alignSelf: "center", width: 450, height: 450 }} />
+				<AdMediaView style={{ alignSelf: "center", width: 400, height: 400 }} />
 				<View style={{ flexDirection: "row" }}>
 					<AdIconView style={{ width: 50, height: 50 }} />
 					<AdTriggerView>

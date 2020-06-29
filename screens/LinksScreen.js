@@ -42,7 +42,7 @@ export default function LinksScreen() {
 
 			<OptionButton
 				icon="coin"
-				label="후원 : 3333038993 413 카카오뱅크 (박도현)"
+				// label="후원 : 3333038993 413 카카오뱅크 (박도현)"
 				onPress={() => {
 					Clipboard.setString("3333038993413 카카오뱅크");
 					Alert.alert("계좌번호가 복사되었습 니다.");
