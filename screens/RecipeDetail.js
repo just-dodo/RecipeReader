@@ -22,18 +22,23 @@ import * as Speech from "expo-speech";
 const { height, width } = Dimensions.get("window");
 
 export default function RecipeDetail({ navigation, route }) {
-  const detailTitle = route.params.detailTitle;
-  const detailItems = route.params.detailItems;
+
+  const recipe = route.params.recipe;
+
+  const detailTitle = recipe.title;
+  const detailItems = recipe.items;
   console.log(route);
 
   const [spokenItem, setSpokenItem] = useState(0);
+  const [isEditing, setIsEditing] = useState(false);
+  const [isDeleting, setIsDeleting] = useState(false);
   return (
     <View style={styles.Container}>
       <View style={styles.TitleContainer}>
         <Text style={styles.TitleText}>{detailTitle}</Text>
         <View style={{ flexDirection: "row" }}>
           {/* icons */}
-          <TouchableOpacity>
+          <TouchableOpacity onPress={()=> setIsEditing(previousState => !previousState)}>
             <MaterialCommunityIcons
               name="circle-edit-outline"
               size={29}
@@ -69,7 +74,7 @@ export default function RecipeDetail({ navigation, route }) {
           renderItem={({ item, index }) => (
             <View style={styles.itemContainer}>
               <Text style={styles.itemText}>{index + 1}. </Text>
-              <Text style={styles.itemText}>{item}</Text>
+              <TextInput style={styles.itemText}>{item}</TextInput>
             </View>
           )}
           keyExtractor={(item) => item.id}
