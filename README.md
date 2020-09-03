@@ -1,2 +1,2 @@
-# dodoTodo
-Todo App with React Natvie
+# RecipeReader
+Recipe Reader App with React Natvie
